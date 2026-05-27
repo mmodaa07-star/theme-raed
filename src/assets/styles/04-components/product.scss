@@ -412,3 +412,37 @@ salla-quantity-input[max='1']{
     @apply cursor-not-allowed
   }
 }
+
+/* ==========================================================================
+   AL3OD CUSTOM FLOATING PRODUCT CARDS
+   ========================================================================== */
+
+// استهداف فئات الكروت الافتراضية في ثيم رائد وتعديلها تماماً
+.s-block--product-entry, .product-entry {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 0px !important; // حواف حادة وفخمة تناسب هوية العطور النيتش
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important; // تصفير الظل الثقيل القديم
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    
+    // حركة الارتفاع السحرية (Float-Up) عند مرور ماوس العميل
+    &:hover {
+        transform: translateY(-10px) !important;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06) !important; // ظل ناعم وسينمائي
+    }
+}
+
+// تنعيم وتفخيم حوايا الصور والبنرات المرافقة للكروت
+.product-entry__image, .s-block--product-entry__image {
+    background-color: #fcfcfc !important; 
+    border-radius: 0px !important;
+    overflow: hidden !important;
+    
+    img {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    
+    &:hover img {
+        transform: scale(1.05) !important; // زووم خفيف وتفاعلي على زجاجة العطر
+    }
+}
