@@ -240,6 +240,24 @@
     ],
     "components": [
         {
+      "name": "home.enhanced-slider",
+      "title": "صور متحركة محسنة",
+      "icon": "salla-icon:image",
+      "path": "home.enhanced-slider"
+    },
+    {
+      "name": "home.enhanced-square-banners",
+      "title": "صور مربعة محسنة",
+      "icon": "salla-icon:images",
+      "path": "home.enhanced-square-banners"
+    },
+    {
+      "name": "home.slider-products-with-header",
+      "title": "منتجات متحركة مع خلفية",
+      "icon": "salla-icon:box",
+      "path": "home.slider-products-with-header"
+    },
+        {
             "key": "186b3f4f-25cf-4d3c-abca-cef7eed6f0ab",
             "title": {
                 "en": "Enhances Animated Images",
