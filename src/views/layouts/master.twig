@@ -106,7 +106,59 @@
 </noscript>
 <div class="app-inner flex flex-col min-h-full">
     {% hook 'body:start' %}
+<!-- AL3OD Custom Immersive Glassmorphic Header -->
+<div id="al3od-header-wrapper" class="al3od-header-transparent">
     {% component 'header.header' %}
+</div>
+
+<style>
+/* التنسيق البرمجي للهيدر الفخم الشفاف والمغبش */
+#al3od-header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent;
+}
+
+/* الحالة الشفافة تماماً في أعلى الصفحة */
+.al3od-header-transparent {
+    background-color: transparent !important;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+/* الحالة الزجاجية المغبشة عند النزول لأسفل الشاشة */
+.al3od-header-scrolled {
+    background-color: rgba(255, 255, 255, 0.75) !important; /* خلفية فاتحة مدمجة بنقاء */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+</style>
+
+<script>
+// البرمجة التفاعلية لتحسس حركة تمرير الشاشة
+document.addEventListener('DOMContentLoaded', function() {
+    const headerWrapper = document.getElementById('al3od-header-wrapper');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            headerWrapper.classList.remove('al3od-header-transparent');
+            headerWrapper.classList.add('al3od-header-scrolled');
+        } else {
+            headerWrapper.classList.remove('al3od-header-scrolled');
+            headerWrapper.classList.add('al3od-header-transparent');
+        }
+    });
+});
+</script>
     <main id="main-content" role="main">
     {% block content %}{% endblock %}
     </main>
