@@ -93,3 +93,49 @@
 
 @import 'lite-youtube-embed/src/lite-yt-embed.css';
 @import 'mmenu-light/dist/mmenu-light.css';
+
+/* AL3OD Full Screen Hero Banner */
+.s-block--fixed-banner {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.s-block--fixed-banner .container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.s-block--fixed-banner a,
+.s-block--fixed-banner picture {
+  display: block;
+  width: 100%;
+}
+
+.s-block--fixed-banner img {
+  width: 100% !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 0 !important;
+}
+
+/* Header over banner */
+.store-header,
+.main-nav-container,
+.top-navbar {
+  position: absolute !important;
+  width: 100%;
+  z-index: 50;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.main-nav-container {
+  top: 0;
+}
+
+body.index .main-content {
+  padding-top: 0 !important;
+}
