@@ -1,33 +1,61 @@
-{#
-| Variable                       | Type     | Description                                                                  |
-|--------------------------------|----------|------------------------------------------------------------------------------|
-| component                      | object   | Contains merchant settings for fields from twilight.json `component` section |
-| component.slides[].image       | string   | Image url                                                                    |
-| component.slides[].title       | ?string  |                                                                              |
-| component.slides[].description | ?string  |                                                                              |
-| component.slides               | object[] | list of slides                                                               |
-| position                       | int      | Sorting number start from zero                                               |
-#}
-<section class="s-block s-block--hero-slider s-block--full-bg wide-placeholder"> 
+<section class="s-block s-block--hero-slider s-block--full-bg wide-placeholder luxury-slider"> 
     <salla-slider 
       id="main-slider-{{ position }}"
       auto-play
       static-when-single
-      slider-config='{"lazy":"false"}'
+      slider-config='{
+        "lazy":"false",
+        "effect":"fade",
+        "speed":900
+      }'
       {{ component.slides|length > 1 ? '' : 'show-controls="false"' }}
       type="fullwidth">
+
         <div slot="items">
             {% for slide in component.slides %}
-                <div class="swiper-slide w-full min-h-[300px] lg:min-h-[528px] bg-dark relative">
-					<div style="background-image: url({{ slide.image }});" class="{{ slide.without_overlay ? '' : 'overlay-bg' }} bg-cover bg-center absolute inset-0"></div>
-                    <div class="flex-center container pb-16 sm:pb-0 home-slider__content relative h-full">
-                        <div class=" w-4/6 text-center md:w-7/12 lg:w-5/12 text-white">
-                            <h2 data-swiper-parallax="-500" class="lg:text-title-size font-bold leading-tight mb-4">{{ slide.title }}</h2>
-                            <p data-swiper-parallax="-300" class="line-clamp-2 description">{{ slide.description }}</p>
+                <div class="swiper-slide w-full min-h-[420px] lg:min-h-[720px] relative overflow-hidden">
+
+                    <!-- Background -->
+                    <div 
+                      style="background-image: url({{ slide.image }});" 
+                      class="absolute inset-0 bg-cover bg-center scale-bg">
+                    </div>
+
+                    <!-- Dark Overlay -->
+                    <div class="absolute inset-0 bg-black/60"></div>
+
+                    <!-- Gold Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+
+                    <!-- Content -->
+                    <div class="flex items-center justify-center container relative h-full text-center">
+                        <div class="max-w-3xl text-white px-6">
+
+                            <span class="tracking-[6px] uppercase text-[#D4AF37] text-sm mb-6 block">
+                                Luxury Fragrance Experience
+                            </span>
+
+                            <h2 
+                              data-swiper-parallax="-500" 
+                              class="text-4xl lg:text-7xl font-black leading-tight mb-6">
+                                {{ slide.title }}
+                            </h2>
+
+                            <p 
+                              data-swiper-parallax="-300" 
+                              class="text-lg lg:text-2xl text-gray-200 leading-loose mb-10">
+                                {{ slide.description }}
+                            </p>
+
+                            <a href="/collections/all"
+                               class="inline-flex items-center justify-center px-10 py-4 rounded-full bg-[#D4AF37] text-black font-bold text-lg hover:scale-105 transition duration-300">
+                                تسوق الآن
+                            </a>
+
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </salla-slider>
-</section> 
+</section>
